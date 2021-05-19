@@ -37,6 +37,4 @@ hadoop jar wc.jar WordCount /home/silvio/hadoop/jobs/input /home/silvio/hadoop/j
 
 * Um arquivo de saída será gerado na pasta output 
 
-## Tensorflow Distribuído
-
 
