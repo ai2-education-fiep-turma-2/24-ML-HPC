@@ -74,5 +74,18 @@ time /home/silvio/sparksource/spark-3.1.1-bin-hadoop3.2/bin/spark-submit --drive
 * Tempo de execução:
 
     * Preparação Apenas
-        * 16 s - spark
-        * 80 s - scikit-learn
+        * 34 s - spark
+        ```
+        time /home/silvio/sparksource/spark-3.1.1-bin-hadoop3.2/bin/spark-submit --driver-memory 60g --executor-memory 60g --master spark://192.168.0.1:8893 Spark-prep.py
+        ```
+        
+        * 84 s - Pandas + scikit-learn
+        ```
+        time python  stackoverflowproject-PREP.py
+        ```
+* Abrindo dataset preparado pelo spark no pandas:
+
+```
+dfparquet=pd.read_parquet('/home/silvio/stackOverflow-prep.parquet')
+dfparquet.describe()
+```

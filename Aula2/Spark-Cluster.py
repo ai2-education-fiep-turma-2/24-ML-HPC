@@ -49,7 +49,7 @@ from pyspark.ml.feature import Word2Vec
 # In[3]:
 
 
-spark = SparkSession.builder.appName("stackoverflow").config("spark.driver.memory", "100g").config("spark.executer.memory", "100g").config("spark.driver.maxResultSize", "50g").getOrCreate()
+spark = SparkSession.builder.appName("stackoverflow").config("spark.driver.memory", "50g").config("spark.executer.memory", "50g").config("spark.driver.maxResultSize", "50g").getOrCreate()
 
 
 # In[ ]:
@@ -71,7 +71,7 @@ spark = SparkSession.builder.appName("stackoverflow").config("spark.driver.memor
 
 
 import datetime
-
+'''
 B=datetime.datetime.now()
 
 
@@ -86,7 +86,6 @@ print(E-B)
 
 
 df_raw2=df_raw2.filter(df_raw2['_c14'] != 'OpenStatus\r')
-
 
 # # comando explain
 # * Mostra organização interna so Spark para um objeto
@@ -111,7 +110,7 @@ print(df_raw2.select("_c2").distinct().count())
 print((df_raw2.count(), len(df_raw2.columns)))
 E=datetime.datetime.now()
 print(E-B)
-
+'''
 
 # # Uma forma de otimizar operações em Dataframes é utilizar arquivos do tipo parquet que são visões do dados otimizada para acesso
 # * Escrevendo arquivo parquet
@@ -119,7 +118,7 @@ print(E-B)
 # In[6]:
 
 
-df_raw2.write.parquet("/home/silvio/stackOverflow2222.parquet")
+#df_raw2.write.parquet("/home/silvio/stackOverflow2222.parquet")
 
 
 # * Lendo arquivo parquet
@@ -136,7 +135,7 @@ parquetFile.createOrReplaceTempView("parquetFile")
 
 
 print(type(parquetFile))
-print(type(df_raw2))
+#print(type(df_raw2))
 
 
 # # parquet aceita qualquer operação SQL
@@ -144,15 +143,15 @@ print(type(df_raw2))
 # In[ ]:
 
 
-t = spark.sql("SELECT count(_c2) FROM parquetFile")
-t.show()
+#t = spark.sql("SELECT count(_c2) FROM parquetFile")
+#t.show()
 
 
 # In[ ]:
 
 
-t = spark.sql("SELECT count(distinct(_c2)) FROM parquetFile")
-t.show()
+#t = spark.sql("SELECT count(distinct(_c2)) FROM parquetFile")
+#t.show()
 
 
 # * Parquet aceita as operações de dataframe também que são executadas de modo otimizado
@@ -230,7 +229,7 @@ print(E-B)
 
 # In[ ]:
 
-
+'''
 B=datetime.datetime.now()
 
 df_raw3 = df_raw2.select("_c6","_c7","_c8","_c9","_c10","_c11","_c12","_c14")
@@ -238,7 +237,7 @@ df_raw3.select([count(when(isnull(c), c)).alias(c) for c in df_raw3.columns]).sh
 
 E=datetime.datetime.now()
 print(E-B)
-
+'''
 
 # # eliminado campos nulos
 
@@ -260,13 +259,13 @@ print(E-B)
 # In[ ]:
 
 
-df_raw37.select([count(when(isnull(c), c)).alias(c) for c in df_raw37.columns]).show()
+#df_raw37.select([count(when(isnull(c), c)).alias(c) for c in df_raw37.columns]).show()
 
 
 # In[ ]:
 
 
-print((df_raw37.count(), len(df_raw37.columns)))
+#print((df_raw37.count(), len(df_raw37.columns)))
 
 
 # ## unificando todos os campos de texto em um único chamado text
@@ -296,13 +295,13 @@ df_raw8 = df_raw5.select("text","OpenStatus_cat")
 # In[ ]:
 
 
-print((df_raw8.count(), len(df_raw8.columns)))
+#print((df_raw8.count(), len(df_raw8.columns)))
 
 
 # In[ ]:
 
 
-df_raw8.show()
+#df_raw8.show()
 
 
 # In[ ]:
@@ -321,7 +320,7 @@ df_raw8 = df_raw8.withColumn("new_text", F.array(F.col("text")))
 # In[ ]:
 
 
-df_raw8.show()
+#df_raw8.show()
 
 
 # In[ ]:

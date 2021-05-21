@@ -458,7 +458,7 @@ train_df.head()
 
 # In[ ]:
 
-
+'''
 from tensorflow.keras.preprocessing.text import Tokenizer
 max_words=10000
 tokenizer=Tokenizer(max_words)
@@ -493,7 +493,7 @@ data_test.shape
 
 # In[ ]:
 
-'''
+
 from tensorflow.keras.layers import Input,Conv1D,MaxPooling1D,Dense,GlobalMaxPooling1D,Embedding
 from tensorflow.keras.models import Model
 D=20
