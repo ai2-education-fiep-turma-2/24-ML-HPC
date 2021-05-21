@@ -14,8 +14,8 @@ pip install pyspark
 * No nó master:
 
     * Selecione uma porta para servir de comunicação entre master e workers. Nesse exemplo a seguir 8893
-    * defina o ip do nó master nesse caso 192.168.0.1
-    * defina o ip do nó locaal nesse caso 192.168.0.1
+    * defina o ip do nó master nesse caso 127.0.0.1
+    * defina o ip do nó locaal nesse caso 127.0.0.1
 
 Inclua essas variáveis no .bashrc so seu usuário /home/seuuser/.bashrc
 
