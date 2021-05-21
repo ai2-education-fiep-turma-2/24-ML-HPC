@@ -17,6 +17,8 @@ pip install pyspark
     * defina o ip do nó master nesse caso 192.168.0.1
     * defina o ip do nó locaal nesse caso 192.168.0.1
 
+Inclua essas variáveis no .bashrc so seu usuário /home/seuuser/.bashrc
+
 ```
 export SPARK_MASTER_PORT="8893"
 export SPARK_MASTER_HOST="192.168.0.1"
