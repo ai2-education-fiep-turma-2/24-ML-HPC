@@ -17,7 +17,7 @@ tar -xvzf hadoop-3.2.2.tar.gz
 ```
 echo $JAVA_HOME
 which java
-export JAVA_HOME=/usr/bin/
+export JAVA_HOME=/usr/
 export PATH=$HOME/hadoop/hadoop-3.2.2/bin:$PATH
 ```
 
